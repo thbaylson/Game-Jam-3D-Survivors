@@ -15,14 +15,11 @@ public partial class SpawnAnimatedEntitiesSystem : SystemBase
     {
         if (!Keyboard.current.qKey.wasPressedThisFrame) return;
 
-        Debug.Log("Q key pressed...");
         SpawnEntitiesConfig config = SystemAPI.GetSingleton<SpawnEntitiesConfig>();
-
         EntityCommandBuffer ecb = new EntityCommandBuffer(WorldUpdateAllocator);
 
         foreach (var localTransformRef in SystemAPI.Query<RefRO<LocalTransform>>().WithAny<SpawnEntitiesConfig>())
         {
-            Debug.Log("Entity spawner found, spawning entities...");
             Entity spawnedEntity = ecb.Instantiate(config.prefabEntity);
 
             LocalTransform initialTransform = new LocalTransform

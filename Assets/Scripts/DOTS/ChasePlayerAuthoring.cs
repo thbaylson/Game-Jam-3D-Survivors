@@ -27,8 +27,6 @@ public class ChasePlayerAuthoring : MonoBehaviour
                     z = Random.Range(-1f, 1f)
                 }
             });
-
-            Debug.Log($"Baking ChasePlayer.");
         }
     }
 }

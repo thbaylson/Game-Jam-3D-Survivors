@@ -21,8 +21,6 @@ public class SpawnEntitiesConfigAuthoring : MonoBehaviour
             {
                 prefabEntity = GetEntity(authoring.prefab, TransformUsageFlags.Dynamic),
             });
-
-            Debug.Log($"Baking SpawnEntitiesConfig with prefab: {authoring.prefab.name}");
         }
     }
 }
