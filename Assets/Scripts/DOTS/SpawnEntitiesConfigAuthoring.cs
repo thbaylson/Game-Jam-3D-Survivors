@@ -15,7 +15,7 @@ public class SpawnEntitiesConfigAuthoring : MonoBehaviour
     {
         public override void Bake(SpawnEntitiesConfigAuthoring authoring)
         {
-            Entity entity = GetEntity(TransformUsageFlags.None);
+            Entity entity = GetEntity(TransformUsageFlags.Dynamic);
 
             AddComponent(entity, new SpawnEntitiesConfig
             {

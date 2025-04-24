@@ -6,16 +6,23 @@ using UnityEngine.InputSystem;
 
 public partial class SpawnAnimatedEntitiesSystem : SystemBase
 {
+    protected override void OnCreate()
+    {
+        RequireForUpdate<SpawnEntitiesConfig>();
+    }
+
     protected override void OnUpdate()
     {
-        if (!Keyboard.current.spaceKey.wasPressedThisFrame) return;
+        if (!Keyboard.current.qKey.wasPressedThisFrame) return;
 
+        Debug.Log("Q key pressed...");
         SpawnEntitiesConfig config = SystemAPI.GetSingleton<SpawnEntitiesConfig>();
 
         EntityCommandBuffer ecb = new EntityCommandBuffer(WorldUpdateAllocator);
 
         foreach (var localTransformRef in SystemAPI.Query<RefRO<LocalTransform>>().WithAny<SpawnEntitiesConfig>())
         {
+            Debug.Log("Entity spawner found, spawning entities...");
             Entity spawnedEntity = ecb.Instantiate(config.prefabEntity);
 
             LocalTransform initialTransform = new LocalTransform
@@ -24,16 +31,18 @@ public partial class SpawnAnimatedEntitiesSystem : SystemBase
                 Scale = 1f,
                 Rotation = quaternion.identity,
             };
+
             ecb.SetComponent(spawnedEntity, initialTransform);
 
             // Instantiate corresponding GameObject (Prefab with Animator)
-            var animatorPrefab = ECSAnimatorPrefabManager.Instance.animatorPrefab;
-            var animatorGO = Object.Instantiate(animatorPrefab, initialTransform.Position, Quaternion.identity);
+            //var animatorPrefab = ECSAnimatorPrefabManager.Instance.animatorPrefab;
+            //var animatorGO = Object.Instantiate(animatorPrefab, initialTransform.Position, Quaternion.identity);
 
-            var link = animatorGO.GetComponent<AnimatorEntityLink>();
-            link.linkedEntity = spawnedEntity;
+            //var link = animatorGO.GetComponent<AnimatorEntityLink>();
+            //link.linkedEntity = spawnedEntity;
         }
 
         ecb.Playback(EntityManager);
+        ecb.Dispose();
     }
 }
