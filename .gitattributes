@@ -62,6 +62,7 @@
 Assets/Plugins/**       linguist-vendored
 
 # Unity LFS
+*.asset                 lfs
 *.cubemap               lfs
 *.unitypackage          lfs
 
