@@ -274,32 +274,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2456158799687617609, guid: b44644d25224b0346a8b65ccb0b79494,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 152274306}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b44644d25224b0346a8b65ccb0b79494, type: 3}
---- !u!1 &152274305 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2456158799687617609, guid: b44644d25224b0346a8b65ccb0b79494,
-    type: 3}
-  m_PrefabInstance: {fileID: 152274304}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &152274306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152274305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2f075c6d44f86b42a95ba56db02698a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
 --- !u!1 &299492781
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,32 +561,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 740211424}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
---- !u!1 &740211423 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
-    type: 3}
-  m_PrefabInstance: {fileID: 740211422}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &740211424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740211423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2f075c6d44f86b42a95ba56db02698a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
 --- !u!1 &810711146
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class RagdollController : MonoBehaviour
@@ -8,7 +9,6 @@ public class RagdollController : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponentInParent<Animator>();
         SetRagdollState(false); // Start with ragdoll off
     }
 
@@ -21,6 +21,13 @@ public class RagdollController : MonoBehaviour
 
         foreach (Collider col in ragdollColliders)
             col.enabled = isRagdoll;
+    }
+
+    public IEnumerator RagdollRoutine(float duration)
+    {
+        SetRagdollState(true);  // Turn on ragdoll
+        yield return new WaitForSeconds(duration);
+        gameObject.SetActive(false);
     }
 
     public void EnableRagdoll() => SetRagdollState(true);

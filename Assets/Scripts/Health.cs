@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 100;
     [SerializeField] private float currentHealth = 100;
+    public float CurrentHealth => currentHealth;
 
     public void TakeDamage(float amount)
     {
