@@ -13,7 +13,7 @@ public partial struct ChasePlayerSystem : ISystem
 
     public void OnUpdate(ref SystemState state)
     {
-        foreach (var (localTransformRef, movementRef) in SystemAPI.Query<RefRW<LocalTransform>, RefRO<ChasePlayer>>().WithNone<Player>())
+        foreach (var (localTransformRef, movementRef) in SystemAPI.Query<RefRW<LocalTransform>, RefRO<ChasePlayer>>())
         {
             localTransformRef.ValueRW = localTransformRef.ValueRO.Translate(movementRef.ValueRO.movement * SystemAPI.Time.DeltaTime);
         }

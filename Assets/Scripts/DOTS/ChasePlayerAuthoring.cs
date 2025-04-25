@@ -23,7 +23,7 @@ public class ChasePlayerAuthoring : MonoBehaviour
                 movement = new float3
                 {
                     x = Random.Range(-1f, 1f),
-                    y = Random.Range(0.1f, 1f),
+                    y = Random.Range(0f, 0f),
                     z = Random.Range(-1f, 1f)
                 }
             });
