@@ -5,17 +5,12 @@ using UnityEngine.AI;
 
 public class BasicZombieBehaviors : MonoBehaviour
 {
-    
     [SerializeField] public GameObject player;
     [SerializeField] private Animator _animChoice;
     [SerializeField] private Animator _anim;
     [SerializeField] private int _randomAnimationChoice;
-    [SerializeField] private float _runSpeed =3.5f;
-    
-  
-   
-    [SerializeField] private float _randomAnimationChoice;
-    [SerializeField] private float _runSpeed;
+    [SerializeField] private float _runSpeed = 3.5f;
+
     [SerializeField] private float _minRunSpeed;
     [SerializeField] private float _maxRunSpeed;
 
@@ -25,12 +20,10 @@ public class BasicZombieBehaviors : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _navMeshAgent = GetComponent<NavMeshAgent>();
         healthComponent = GetComponent<Health>();
         ragdollController = GetComponent<RagdollController>();
 
-        
-        GameObject [] obj = GameObject.FindGameObjectsWithTag("ZombieAnim");
+        GameObject[] obj = GameObject.FindGameObjectsWithTag("ZombieAnim");
         _anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         _randomAnimationChoice = Random.Range(0, 3);
@@ -38,20 +31,19 @@ public class BasicZombieBehaviors : MonoBehaviour
         _anim.runtimeAnimatorController = _animChoice.runtimeAnimatorController;
         float randomOffsetTime = Random.Range(.5f, 1.5f);
         _anim.speed = randomOffsetTime;
-
-
-
     }
-    public void MoveTo(Vector3 targetPosition)
-    {
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, _runSpeed * Time.deltaTime);
-        transform.LookAt(targetPosition);
-        _navMeshAgent.destination = player.transform.position;
 
-        if(healthComponent.CurrentHealth <= 0)
+    private void Update()
+    {
+        if (healthComponent.CurrentHealth <= 0)
         {
             StartCoroutine(ragdollController.RagdollRoutine(3f));
         }
     }
 
+    public void MoveTo(Vector3 targetPosition)
+    {
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, _runSpeed * Time.deltaTime);
+        transform.LookAt(targetPosition);
+    }
 }

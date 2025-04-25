@@ -5,8 +5,13 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 100;
-    [SerializeField] private float currentHealth = 100;
+    [SerializeField] private float currentHealth;
     public float CurrentHealth => currentHealth;
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+    }
 
     public void TakeDamage(float amount)
     {
