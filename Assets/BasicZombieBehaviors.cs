@@ -11,8 +11,6 @@ public class BasicZombieBehaviors : MonoBehaviour
     [SerializeField] private int _randomAnimationChoice;
     [SerializeField] private float _runSpeed = 3.5f;
 
-    [SerializeField] private float _minRunSpeed;
-    [SerializeField] private float _maxRunSpeed;
 
     private Health healthComponent;
     private RagdollController ragdollController;
@@ -35,9 +33,14 @@ public class BasicZombieBehaviors : MonoBehaviour
 
     private void Update()
     {
+        
         if (healthComponent.CurrentHealth <= 0)
         {
             StartCoroutine(ragdollController.RagdollRoutine(3f));
+        }
+        else
+        {
+            MoveTo(player.transform.position);
         }
     }
 

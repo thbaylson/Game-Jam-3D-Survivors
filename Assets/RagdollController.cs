@@ -9,14 +9,17 @@ public class RagdollController : MonoBehaviour
     [SerializeField] private float _forceAmount;
     [SerializeField] private string ragdollLayerName = "CantCollideWithPlayer";
     [SerializeField] private string normalEnemyLayer = "Enemy";
+    [SerializeField] private CapsuleCollider notRagdollCollider;
 
     void Start()
     {
+        notRagdollCollider = GetComponent<CapsuleCollider>();
         SetRagdollState(false); // Start with ragdoll off
     }
 
     public void SetRagdollState(bool isRagdoll)
     {
+        notRagdollCollider.enabled = !isRagdoll;
         Vector3 randomDir = Random.onUnitSphere; // random direction
         animator.enabled = !isRagdoll;
 
