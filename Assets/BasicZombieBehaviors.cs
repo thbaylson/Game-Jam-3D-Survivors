@@ -14,10 +14,12 @@ public class BasicZombieBehaviors : MonoBehaviour
     [SerializeField] private float _runSpeed;
     [SerializeField] private float _minRunSpeed;
     [SerializeField] private float _maxRunSpeed;
+   
     // Start is called before the first frame update
     void Start()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
+        
         _anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         _randomAnimationChoice = Random.Range(0, 3); //choose between the three different movement types so they're not all doing the same shit
