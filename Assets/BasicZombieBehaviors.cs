@@ -5,9 +5,15 @@ using UnityEngine.AI;
 
 public class BasicZombieBehaviors : MonoBehaviour
 {
-    [SerializeField] private NavMeshAgent _navMeshAgent;
+    
     [SerializeField] public GameObject player;
+    [SerializeField] private Animator _animChoice;
     [SerializeField] private Animator _anim;
+    [SerializeField] private int _randomAnimationChoice;
+    [SerializeField] private float _runSpeed =3.5f;
+    
+  
+   
     [SerializeField] private float _randomAnimationChoice;
     [SerializeField] private float _runSpeed;
     [SerializeField] private float _minRunSpeed;
@@ -23,19 +29,23 @@ public class BasicZombieBehaviors : MonoBehaviour
         healthComponent = GetComponent<Health>();
         ragdollController = GetComponent<RagdollController>();
 
+        
+        GameObject [] obj = GameObject.FindGameObjectsWithTag("ZombieAnim");
         _anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
-        _randomAnimationChoice = Random.Range(0, 3); //choose between the three different movement types so they're not all doing the same shit
-        _anim.SetFloat("Moving", _randomAnimationChoice);
-        _anim.speed = Random.Range(.95f, 1.05f); //randomizes speed to make the characters looked more randomly animated instead of being in step and shit
-        _runSpeed = Random.Range(_minRunSpeed, _maxRunSpeed); //if these values are going to scale up with difficulty, we'll need a plan here, but for now this will work
-        _navMeshAgent.speed = _runSpeed;
-        
-    }
+        _randomAnimationChoice = Random.Range(0, 3);
+        _animChoice = obj[_randomAnimationChoice].GetComponent<Animator>();
+        _anim.runtimeAnimatorController = _animChoice.runtimeAnimatorController;
+        float randomOffsetTime = Random.Range(.5f, 1.5f);
+        _anim.speed = randomOffsetTime;
 
-    // Update is called once per frame
-    void Update()
+
+
+    }
+    public void MoveTo(Vector3 targetPosition)
     {
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, _runSpeed * Time.deltaTime);
+        transform.LookAt(targetPosition);
         _navMeshAgent.destination = player.transform.position;
 
         if(healthComponent.CurrentHealth <= 0)
@@ -43,4 +53,5 @@ public class BasicZombieBehaviors : MonoBehaviour
             StartCoroutine(ragdollController.RagdollRoutine(3f));
         }
     }
+
 }
