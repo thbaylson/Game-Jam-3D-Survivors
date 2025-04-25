@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerDetectorAttackTrigger : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     private RagdollController ragdollController;
+    private NavMeshAgent _navmeshAgent;
     void Start()
     {
+        _navmeshAgent = GetComponentInParent<NavMeshAgent>();
         _animator = GetComponentInParent<Animator>();
         ragdollController = GetComponentInParent<RagdollController>();
     }
@@ -23,7 +26,8 @@ public class PlayerDetectorAttackTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _animator.SetTrigger("Attacking");
-            EnableRagdollTemporarily(3f);        }
+            EnableRagdollTemporarily(10f);    
+        }
     }
     public void EnableRagdollTemporarily(float duration)
     {
@@ -32,7 +36,7 @@ public class PlayerDetectorAttackTrigger : MonoBehaviour
 
     private IEnumerator RagdollRoutine(float duration)
     {
-        ragdollController.SetRagdollState(true);  // Turn on ragdoll
+        ragdollController.SetRagdollState(true); // Turn on ragdoll
         yield return new WaitForSeconds(duration);
         ragdollController.SetRagdollState(false); // Turn it back off
     }
