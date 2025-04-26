@@ -13,7 +13,8 @@ public class AutomaticFiring : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        // TODO: 15 is arbitrary, figure it out from shootInterval and BulletLifetime.
+        PoolManager.Instance.Register(bulletPrefab, 15);
     }
 
     // Update is called once per frame
@@ -35,6 +36,6 @@ public class AutomaticFiring : MonoBehaviour
         Vector3 spawnPos = bulletSpawnPoint ? bulletSpawnPoint.position : transform.position + transform.forward;
         Quaternion rotation = transform.rotation;
 
-        GameObject bullet = Instantiate(bulletPrefab, spawnPos, rotation);
+        PoolManager.Instance.Spawn(bulletPrefab, spawnPos, rotation);
     }
 }
