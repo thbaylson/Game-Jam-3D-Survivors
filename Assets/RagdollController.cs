@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RagdollController : MonoBehaviour
 {
@@ -11,10 +13,9 @@ public class RagdollController : MonoBehaviour
     [SerializeField] private string normalEnemyLayer = "Enemy";
     [SerializeField] private CapsuleCollider notRagdollCollider;
 
-    void Start()
+    void Awake()
     {
         notRagdollCollider = GetComponent<CapsuleCollider>();
-        SetRagdollState(false); // Start with ragdoll off
     }
 
     public void SetRagdollState(bool isRagdoll)
@@ -35,6 +36,7 @@ public class RagdollController : MonoBehaviour
         foreach (Collider col in ragdollColliders)
             SetLayerRecursively(col.gameObject, newLayer);
     }
+
     private void SetLayerRecursively(GameObject obj, int newLayer)
     {
         obj.layer = newLayer;
@@ -44,11 +46,11 @@ public class RagdollController : MonoBehaviour
         }
     }
 
-    public IEnumerator RagdollRoutine(float duration)
+    public IEnumerator RagdollRoutine(float duration, Action callback= null)
     {
         SetRagdollState(true);  // Turn on ragdoll
         yield return new WaitForSeconds(duration);
-        gameObject.SetActive(false);
+        callback?.Invoke();
     }
 
     public void EnableRagdoll() => SetRagdollState(true);

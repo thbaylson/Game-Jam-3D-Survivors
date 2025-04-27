@@ -6,7 +6,8 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 100;
     [SerializeField] private float currentHealth;
-    public float CurrentHealth => currentHealth;
+    public float MaxHealth => maxHealth;
+    public float CurrentHealth { get => currentHealth; set => currentHealth = value; }
 
     private void Start()
     {
