@@ -6,11 +6,14 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 100;
     [SerializeField] private float currentHealth;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _damageSound;
     public float MaxHealth => maxHealth;
     public float CurrentHealth { get => currentHealth; set => currentHealth = value; }
 
     private void Start()
     {
+        _audioSource = GetComponentInChildren<AudioSource>();
         currentHealth = maxHealth;
     }
 
@@ -18,5 +21,6 @@ public class Health : MonoBehaviour
     {
         if (currentHealth <= 0) return;
         currentHealth = Mathf.Max(0, currentHealth - amount);
+        _audioSource.PlayOneShot(_damageSound);
     }
 }
