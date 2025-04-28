@@ -4,32 +4,22 @@ using UnityEngine;
 
 public class PlayerAudio : MonoBehaviour
 {
-    [SerializeField] private AudioClip _bulletSound;
-    [SerializeField] private AudioClip[] _runSounds;
+    [SerializeField] private AudioClip[] _bulletAbilitySound;
     [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private float _bulletDelay;
-    [SerializeField] private bool isPlaying;
+    [SerializeField] public int _abilityLevel =0;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
-        isPlaying = false;
+        PlayAbilitySounds();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void PlayAbilitySounds()
     {
-        if (!isPlaying)
-        {
-            StartCoroutine(PlayerBulletSound(_bulletDelay));
-        }
-    }
-    public IEnumerator PlayerBulletSound(float delay)
-    {
-        isPlaying = true;
-        _audioSource.PlayOneShot(_bulletSound);
-        yield return new WaitForSeconds(delay);
-        isPlaying = false;
+        _audioSource.clip = _bulletAbilitySound[_abilityLevel];
+        _audioSource.Play();
     }
 }

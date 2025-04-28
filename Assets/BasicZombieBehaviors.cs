@@ -33,7 +33,7 @@ public class BasicZombieBehaviors : MonoBehaviour, IPoolable
         _randomAnimationChoice = Random.Range(0, obj.Length);
         _animChoice = obj[_randomAnimationChoice].GetComponent<Animator>();
         _anim.runtimeAnimatorController = _animChoice.runtimeAnimatorController;
-        float randomOffsetTime = Random.Range(.5f, 1.5f);
+        float randomOffsetTime = Random.Range(.9f, 1.1f);
         _anim.speed = randomOffsetTime;
     }
 

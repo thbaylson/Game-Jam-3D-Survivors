@@ -7,29 +7,23 @@ public class ZombieAudio : MonoBehaviour
     [SerializeField] private AudioClip[] _zombieNearbySounds;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private float _audioDelay;
-    [SerializeField] private bool isPlaying;
 
-    // Start is called before the first frame update
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
-        isPlaying = false;
+        StartCoroutine(ZombieNoisesLoop());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator ZombieNoisesLoop()
     {
-        if (!isPlaying)
+        float offsetter = Random.Range(0, 5);
+        yield return new WaitForSeconds(offsetter);
+        while (true)
         {
-            StartCoroutine(ZombieNoises(_audioDelay));
+            int randomChoice = Random.Range(0, _zombieNearbySounds.Length);
+            _audioSource.PlayOneShot(_zombieNearbySounds[randomChoice]);
+            yield return new WaitForSeconds(_zombieNearbySounds[randomChoice].length);
+            yield return new WaitForSeconds(_audioDelay);
         }
-    }
-    public IEnumerator ZombieNoises(float delay)
-    {
-        isPlaying = true;
-        int randomChoice = Random.Range(0, _zombieNearbySounds.Length);
-        _audioSource.PlayOneShot(_zombieNearbySounds[randomChoice]);
-        yield return new WaitForSeconds(delay);
-        isPlaying = false;
     }
 }
