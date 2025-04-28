@@ -14,6 +14,9 @@ public class EnemyWaveManager : MonoBehaviour
     // Might wanna add a kill zone beneath the map.
     private float spawnYOffset = 3f;
 
+    public System.Action<int> OnWaveCountChange;
+    public System.Action<float> OnWaveTimerChange;
+
     private void Start()
     {
         foreach (Wave w in waves)
@@ -30,12 +33,14 @@ public class EnemyWaveManager : MonoBehaviour
         {
             currentWave = (currentWave) % waves.Count;
             Wave wave = waves[currentWave++];
+            OnWaveCountChange?.Invoke(currentWave);
 
             SpawnWave(wave);
             float timer = wave.timer;
             while (timer > 0f)
             {
                 timer -= Time.deltaTime;
+                OnWaveTimerChange?.Invoke(timer);
                 yield return null;
             }
 

@@ -1004,6 +1004,7 @@ MonoBehaviour:
   _anim: {fileID: 533076207569256287}
   _randomAnimationChoice: 0
   _runSpeed: 5
+  _exp: 8
 --- !u!135 &1761373172685378188
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1078,8 +1079,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2f075c6d44f86b42a95ba56db02698a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
+  maxHealth: 50
+  currentHealth: 50
   _audioSource: {fileID: 0}
   _damageSound: {fileID: 8300000, guid: 6e21c206d93417b44bc0ad91721a8702, type: 3}
 --- !u!114 &1745471440677658535

@@ -10,10 +10,12 @@ public class BasicZombieBehaviors : MonoBehaviour, IPoolable
     [SerializeField] private Animator _anim;
     [SerializeField] private int _randomAnimationChoice;
     [SerializeField] private float _runSpeed = 3.5f;
+    [SerializeField] private int _exp = 8;
 
     private Health healthComponent;
     private RagdollController ragdollController;
     private GameObject prefabRef;
+    private bool isDead;
 
     void Awake()
     {
@@ -27,7 +29,7 @@ public class BasicZombieBehaviors : MonoBehaviour, IPoolable
     void Start()
     {
         GameObject[] obj = GameObject.FindGameObjectsWithTag("ZombieAnim");        
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = FindFirstObjectByType<PlayerExperience>().gameObject;
         _randomAnimationChoice = Random.Range(0, obj.Length);
         _animChoice = obj[_randomAnimationChoice].GetComponent<Animator>();
         _anim.runtimeAnimatorController = _animChoice.runtimeAnimatorController;
@@ -37,9 +39,17 @@ public class BasicZombieBehaviors : MonoBehaviour, IPoolable
 
     private void Update()
     {
-        
+        if (isDead) return;
+
         if (healthComponent.CurrentHealth <= 0)
         {
+            isDead = true;
+
+            if (player != null)
+            {
+                player.GetComponent<PlayerExperience>()?.Add(_exp);
+            }
+
             // Duration here means how long the body will stay ragdolled before despawning.
             StartCoroutine(ragdollController.RagdollRoutine(duration: 3f, OnDespawn));
         }
@@ -59,9 +69,16 @@ public class BasicZombieBehaviors : MonoBehaviour, IPoolable
 
     public void OnSpawn()
     {
+        isDead = false;
         healthComponent.CurrentHealth = healthComponent.MaxHealth;
         ragdollController.SetRagdollState(false);
     }
 
-    public void OnDespawn() => PoolManager.Instance.Despawn(prefabRef, gameObject);
+    public void OnDespawn()
+    {
+        // Having this here means there's a delay before the player gets the exp,
+        //  but it also doesn't work in Update- above the Coroutine call.
+
+        PoolManager.Instance.Despawn(prefabRef, gameObject);
+    }
 }

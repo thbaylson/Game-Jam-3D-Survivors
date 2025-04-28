@@ -11,6 +11,8 @@ public class Health : MonoBehaviour
     public float MaxHealth => maxHealth;
     public float CurrentHealth { get => currentHealth; set => currentHealth = value; }
 
+    public event System.Action<float> OnHealthChanged;
+
     private void Start()
     {
         _audioSource = GetComponentInChildren<AudioSource>();
@@ -21,6 +23,8 @@ public class Health : MonoBehaviour
     {
         if (currentHealth <= 0) return;
         currentHealth = Mathf.Max(0, currentHealth - amount);
+        OnHealthChanged?.Invoke(currentHealth / maxHealth);
+
         _audioSource.PlayOneShot(_damageSound);
     }
 }
