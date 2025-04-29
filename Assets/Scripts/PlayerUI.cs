@@ -47,7 +47,7 @@ public class PlayerUI : MonoBehaviour
 
     private void UpdateLevelText(int level)
     {
-        levelText.text = $"Level: {level}";
+        levelText.text = $"{level}";
     }
 
     private void UpdateExpBar(float percentage)
