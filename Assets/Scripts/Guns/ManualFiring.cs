@@ -1,35 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class AutomaticFiring : MonoBehaviour
+public class ManualFiring : MonoBehaviour, IGun
 {
     public GameObject bulletPrefab;
-    public float shootInterval = 0.25f;
     public Transform bulletSpawnPoint;
-
-    private float shootTimer = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        // TODO: 15 is arbitrary, figure it out from shootInterval and BulletLifetime.
         PoolManager.Instance.Register(bulletPrefab, 15);
     }
 
     // Update is called once per frame
     void Update()
     {
-        shootTimer += Time.deltaTime;
-
-        if (shootTimer >= shootInterval)
+        if(Mouse.current.leftButton.wasPressedThisFrame)
         {
-            shootTimer = 0f;
             Shoot();
         }
     }
 
-    void Shoot()
+    public void Shoot()
     {
         if (bulletPrefab == null) return;
 
