@@ -10,7 +10,7 @@ public class AutomaticFiring : GunBase
     // Start is called before the first frame update
     void Start()
     {
-        PoolManager.Instance.Register(bulletPrefab, 35);
+        PoolManager.Instance.Register(bulletPrefab, 1000);
     }
 
     // Update is called once per frame

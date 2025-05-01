@@ -1109,9 +1109,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   _animChoice: {fileID: 0}
+  animationComponent: {fileID: 0}
   _anim: {fileID: 533076207569256287}
   _randomAnimationChoice: 0
-  _runSpeed: 5
+  _runSpeed: 6
   _exp: 8
 --- !u!135 &1761373172685378188
 SphereCollider:
@@ -1171,7 +1172,7 @@ MonoBehaviour:
   - {fileID: 3813353864470926011}
   - {fileID: 1252571650883633738}
   - {fileID: 6958780588369651136}
-  _forceAmount: 1
+  _forceAmount: 20
   ragdollLayerName: CantCollideWithPlayer
   normalEnemyLayer: Enemy
   notRagdollCollider: {fileID: 0}

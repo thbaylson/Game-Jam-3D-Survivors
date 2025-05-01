@@ -21,7 +21,7 @@ public class EnemyWaveManager : MonoBehaviour
     {
         foreach (Wave w in waves)
         {
-            if (w.enemyPrefab != null) PoolManager.Instance.Register(w.enemyPrefab, w.count);
+            if (w.enemyPrefab != null) PoolManager.Instance.Register(w.enemyPrefab, 300);
         }
 
         StartCoroutine(WaveLoop());

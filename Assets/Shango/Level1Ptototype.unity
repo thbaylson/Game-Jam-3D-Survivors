@@ -3306,7 +3306,7 @@ PrefabInstance:
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -388.35938
+      value: -104.359375
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
@@ -3316,7 +3316,7 @@ PrefabInstance:
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 287.19727
+      value: 73.197266
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
@@ -3535,62 +3535,62 @@ PrefabInstance:
     - target: {fileID: 3253146597842201559, guid: 9ad6bd72ece31b744a14db9ee585e3f3,
         type: 3}
       propertyPath: waves.Array.data[0].count
-      value: 1
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3253146597842201559, guid: 9ad6bd72ece31b744a14db9ee585e3f3,
         type: 3}
       propertyPath: waves.Array.data[0].timer
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3253146597842201559, guid: 9ad6bd72ece31b744a14db9ee585e3f3,
         type: 3}
       propertyPath: waves.Array.data[1].count
-      value: 6
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3253146597842201559, guid: 9ad6bd72ece31b744a14db9ee585e3f3,
         type: 3}
       propertyPath: waves.Array.data[1].timer
-      value: 10
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3253146597842201559, guid: 9ad6bd72ece31b744a14db9ee585e3f3,
         type: 3}
       propertyPath: waves.Array.data[2].count
-      value: 8
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3253146597842201559, guid: 9ad6bd72ece31b744a14db9ee585e3f3,
         type: 3}
       propertyPath: waves.Array.data[2].timer
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3253146597842201559, guid: 9ad6bd72ece31b744a14db9ee585e3f3,
         type: 3}
       propertyPath: waves.Array.data[3].count
-      value: 15
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3253146597842201559, guid: 9ad6bd72ece31b744a14db9ee585e3f3,
         type: 3}
       propertyPath: waves.Array.data[3].timer
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3253146597842201559, guid: 9ad6bd72ece31b744a14db9ee585e3f3,
         type: 3}
       propertyPath: waves.Array.data[0].radius
-      value: 75
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3253146597842201559, guid: 9ad6bd72ece31b744a14db9ee585e3f3,
         type: 3}
       propertyPath: waves.Array.data[1].radius
-      value: 50
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3253146597842201559, guid: 9ad6bd72ece31b744a14db9ee585e3f3,
         type: 3}
       propertyPath: waves.Array.data[2].radius
-      value: 50
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3253146597842201559, guid: 9ad6bd72ece31b744a14db9ee585e3f3,
         type: 3}
       propertyPath: waves.Array.data[3].radius
-      value: 60
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3253146597842201559, guid: 9ad6bd72ece31b744a14db9ee585e3f3,
         type: 3}
@@ -4694,7 +4694,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3d4d103fe70ab23459ab232456646b1b, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -6471,7 +6471,7 @@ PrefabInstance:
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -388.35938
+      value: -104.359375
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
@@ -6481,7 +6481,7 @@ PrefabInstance:
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 287.19727
+      value: 73.197266
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
@@ -7476,7 +7476,7 @@ PrefabInstance:
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -388.35938
+      value: -104.359375
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81,
         type: 3}
@@ -7486,7 +7486,7 @@ PrefabInstance:
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 287.19727
+      value: 73.197266
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81,
         type: 3}
@@ -17432,7 +17432,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: dfe966e181ca0464e89a09e74971cbb0, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -21775,6 +21775,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1646338986252363854, guid: 58e1eb7a29ef77d44b2bc0687f8105ad,
+        type: 3}
+      propertyPath: m_CullingMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6257868418450502009, guid: 58e1eb7a29ef77d44b2bc0687f8105ad,
         type: 3}
       propertyPath: m_Name

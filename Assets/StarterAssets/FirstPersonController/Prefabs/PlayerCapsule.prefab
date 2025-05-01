@@ -28,7 +28,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.375, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1983489943534647075}
+  - {fileID: 9078372652798566557}
   m_Father: {fileID: 8997996947095583982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5393215578589016642
@@ -164,12 +166,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5790373691203289329}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 1.243, z: 0.28}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.5, y: -0.13199997, z: 0.2800293}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8997996947095583982}
+  m_Father: {fileID: 4135013735270702856}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6983958423099235992
 GameObject:
@@ -195,12 +197,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6983958423099235992}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 1.243, z: 0.28}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.5, y: -0.13199997, z: 0.2800293}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8997996947095583982}
+  m_Father: {fileID: 4135013735270702856}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8616685848737228372
 GameObject:
@@ -241,8 +243,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4135013735270702856}
-  - {fileID: 1983489943534647075}
-  - {fileID: 9078372652798566557}
   - {fileID: 5393215578589016641}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -467,8 +467,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8848013390417539578, guid: 8482fe4ead7bdfb498068eaf0b9ca3e1,
     type: 3}
-  shootInterval: 1
   bulletSpawnPoint: {fileID: 1983489943534647075}
+  baseDamage: 10
+  shotsPerSecond: 4
+  multiShot: 1
+  pierceCount: 0
 --- !u!114 &3786126082671339362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,6 +487,10 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8848013390417539578, guid: 8482fe4ead7bdfb498068eaf0b9ca3e1,
     type: 3}
   bulletSpawnPoint: {fileID: 9078372652798566557}
+  baseDamage: 10
+  shotsPerSecond: 4
+  multiShot: 1
+  pierceCount: 0
 --- !u!114 &3749283743062503465
 MonoBehaviour:
   m_ObjectHideFlags: 0
