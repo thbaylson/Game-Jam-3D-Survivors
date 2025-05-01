@@ -12,6 +12,6 @@ public abstract class Upgrade : ScriptableObject
     public UpgradeType Type;
 
     // Called after the player confirms the upgrade.
-    public abstract void Apply(GameObject player, IGun gun= null);
+    public abstract void Apply(GameObject player, GunBase gun = null);
 }
 

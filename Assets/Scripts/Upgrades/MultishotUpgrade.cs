@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Upgrades/Gun/DamageUp")]
-public class GunDamageUpgrade : Upgrade
+[CreateAssetMenu(menuName = "Upgrades/Gun/Multishot")]
+public class MultishotUpgrade : Upgrade
 {
-    public float damageIncrease;
+    public int multiShotIncrease;
 
     private void OnEnable() => Type = UpgradeType.Gun;
 
     public override void Apply(GameObject player, GunBase gun)
     {
         if (gun == null) return;
-        gun.baseDamage += damageIncrease;
+        gun.multiShot += multiShotIncrease;
     }
 }
-

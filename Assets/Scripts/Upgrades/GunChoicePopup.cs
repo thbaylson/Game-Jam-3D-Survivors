@@ -9,13 +9,12 @@ public class GunChoicePopup : MonoBehaviour
     [SerializeField] private Button leftButton;
     [SerializeField] private Button rightButton;
 
-    public void Open(UpgradeOption parentOption, Action<IGun> onGunPicked)
+    public void Open(UpgradeOption parentOption, Action<GunBase> onGunPicked)
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        // TODO: Maybe just pass the player from UpgradePanel instead of finding it here?
+        GunBase player = FindFirstObjectByType<GunBase>();
         if (player == null) { return; }
-        Debug.Log("GunChoicePopup opened");
 
-        //gameObject.transform.SetParent(parentOption.transform);
         gameObject.SetActive(true);
 
         leftButton.onClick.RemoveAllListeners();

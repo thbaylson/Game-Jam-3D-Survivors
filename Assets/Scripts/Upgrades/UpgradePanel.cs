@@ -8,6 +8,7 @@ public class UpgradePanel : MonoBehaviour
     [SerializeField] private Transform optionContainer;
     [SerializeField] private UpgradeOption optionPrefab;
     [SerializeField] private GunChoicePopup gunChoicePopup;
+    [SerializeField] private PassiveChoicePopup passiveChoicePopup;
 
     private GameObject player;
     private List<UpgradeOption> upgradeOptions = new();
@@ -66,13 +67,17 @@ public class UpgradePanel : MonoBehaviour
     {
         if (upgrade.Type == UpgradeType.Passive)
         {
-            upgrade.Apply(player);
-            Close();
+            PassiveChoicePopup passiveChoice = Instantiate(passiveChoicePopup, option.transform);
+            passiveChoice.Open(option, () =>
+            {
+                upgrade.Apply(player);
+                Close();
+            });
         }
         else
         {
             GunChoicePopup gunChoice = Instantiate(gunChoicePopup, option.transform);
-            gunChoice.Open(option, chosenGun =>
+            gunChoice.Open(option, (chosenGun) =>
             {
                 upgrade.Apply(player, chosenGun);
                 Close();

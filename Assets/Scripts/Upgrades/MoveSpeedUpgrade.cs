@@ -10,9 +10,8 @@ public class MoveSpeedUpgrade : Upgrade
 
     private void OnEnable() => Type = UpgradeType.Passive;
 
-    public override void Apply(GameObject player, IGun gun = null)
+    public override void Apply(GameObject player, GunBase gun = null)
     {
-        Debug.Log("MoveSpeedUpgrade applied! Speed multiplier: " + speedMultiplier);
         player.GetComponent<FirstPersonController>().MoveSpeed *= speedMultiplier;
     }
 }

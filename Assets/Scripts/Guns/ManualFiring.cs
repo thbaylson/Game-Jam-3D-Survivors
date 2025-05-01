@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ManualFiring : MonoBehaviour, IGun
+public class ManualFiring : GunBase
 {
-    public GameObject bulletPrefab;
-    public Transform bulletSpawnPoint;
-
     // Start is called before the first frame update
     void Start()
     {
-        PoolManager.Instance.Register(bulletPrefab, 15);
+        PoolManager.Instance.Register(bulletPrefab, 35);
     }
 
     // Update is called once per frame
@@ -21,15 +18,5 @@ public class ManualFiring : MonoBehaviour, IGun
         {
             Shoot();
         }
-    }
-
-    public void Shoot()
-    {
-        if (bulletPrefab == null) return;
-
-        Vector3 spawnPos = bulletSpawnPoint ? bulletSpawnPoint.position : transform.position + transform.forward;
-        Quaternion rotation = transform.rotation;
-
-        PoolManager.Instance.Spawn(bulletPrefab, spawnPos, rotation);
     }
 }

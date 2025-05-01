@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class BulletDamage : MonoBehaviour, IPoolable
@@ -8,8 +7,6 @@ public class BulletDamage : MonoBehaviour, IPoolable
     public float damage = 10f;
 
     private GameObject prefabRef;
-
-    //void Awake() => prefabRef = transform.root.gameObject;
 
     private void OnTriggerEnter(Collider other)
     {
