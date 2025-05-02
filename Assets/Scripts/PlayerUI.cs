@@ -18,6 +18,8 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private TMP_Text waveNumberText;
     [SerializeField] private TMP_Text waveTimeText;
 
+    private int totalWaves = 1;
+
     private void Awake()
     {
         player = FindFirstObjectByType<PlayerExperience>().gameObject;
@@ -35,7 +37,7 @@ public class PlayerUI : MonoBehaviour
 
         if(waveManager != null)
         {
-            waveManager.GetComponent<EnemyWaveManager>().OnWaveCountChange += UpdateWaveNumberText;
+            waveManager.GetComponent<EnemyWaveManager>().OnWaveCountChange += IncreaseWaveNumberText;
             waveManager.GetComponent<EnemyWaveManager>().OnWaveTimerChange += UpdateWaveTimeText;
         }
     }
@@ -62,8 +64,8 @@ public class PlayerUI : MonoBehaviour
         waveTimeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    private void UpdateWaveNumberText(int num)
+    private void IncreaseWaveNumberText(int _)
     {
-        waveNumberText.text = $"Wave: {num}";
+        waveNumberText.text = $"{totalWaves++}";
     }
 }

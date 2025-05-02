@@ -20,7 +20,7 @@ public class PoolManager : MonoBehaviour
         }
     }
 
-    public void Register(GameObject prefab, int preload= 0, Transform parent= null)
+    public void Register(GameObject prefab, int preload = 0, Transform parent = null)
     {
         if (pools.ContainsKey(prefab)) return;
 
@@ -51,5 +51,39 @@ public class PoolManager : MonoBehaviour
         {
             Destroy(instance);
         }
+    }
+
+    public IEnumerable<GameObject> GetAllActiveByName(string name)
+    {
+        List<GameObject> list = new();
+        foreach (var pool in pools.Values)
+        {
+            foreach (var go in pool.queue)
+            {
+                if (go.activeSelf && go.name == name)
+                {
+                    list.Add(go);
+                }
+            }
+        }
+
+        return list;
+    }
+
+    public IEnumerable<GameObject> GetAllActive<Component>()
+    {
+        List<GameObject> list = new();
+        foreach (var pool in pools.Values)
+        {
+            foreach (var go in pool.queue)
+            {
+                if (go.activeSelf && go.GetComponent<Component>() != null)
+                {
+                    list.Add(go);
+                }
+            }
+        }
+
+        return list;
     }
 }
